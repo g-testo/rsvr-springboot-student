@@ -1,8 +1,10 @@
 pipeline {
-  agent none
+  agent any
+  tools {
+    maven 'Default'
+  }
   stages {
     stage('Jenkinsfile Test') {
-      agent any
       steps {
         sh 'mvn -v'
       }
