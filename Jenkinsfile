@@ -10,8 +10,10 @@ pipeline {
       steps {
         sh "mvn spring-boot:run"
       }
-      echo "Waiting for backend to start..."
-      sleep(time:3,unit:"SECONDS")
+      steps {
+        echo "Waiting for backend to start..."
+        sleep(time:5,unit:"SECONDS")
+      }
       steps {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
