@@ -2,7 +2,11 @@ pipeline {
   agent none
   stages {
     stage('Jenkinsfile Test') {
-      agent any
+      agent { 
+        docker {
+          image 'maven:3-alpine'
+        }
+      }
       steps {
         sh 'mvn -v'
       }
