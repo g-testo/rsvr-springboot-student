@@ -8,6 +8,11 @@ pipeline {
     }
     stage('SpringBoot Selenium/Cucumber Test') {
       steps {
+        sh "mvn spring-boot:run"
+      }
+      echo "Waiting for backend to start..."
+      sleep(time:3,unit:"SECONDS")
+      steps {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
