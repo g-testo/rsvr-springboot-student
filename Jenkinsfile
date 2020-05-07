@@ -1,12 +1,14 @@
 pipeline {
   agent any
-  tools {
-    maven 'Default'
-  }
   stages {
-    stage('Jenkinsfile Test') {
+    stage('SpringBoot Integration Test') {
       steps {
-        sh 'mvn -v'
+        sh "mvn '-Dtest=*/rsvrInClass/*' test"
+      }
+    }
+    stage('SpringBoot Selenium/Cucumber Test') {
+      steps {
+        sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
   }
