@@ -1,7 +1,9 @@
 package cucumberTests;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.Given;
@@ -17,13 +19,12 @@ public class Stepdefs {
 		browser = new ChromeDriver();
 		browser.get("http://localhost:4200/users/list");
 		
-		String pageSource = browser.getPageSource();
-		
-		System.out.println(pageSource);
+		WebElement el = browser.findElement(By.cssSelector("body"));
+		System.out.println(el.getText());
 //		Boolean isPageTitleOk = pageTitle.equals("Google");
 //		assertTrue(isPageTitleOk);
 		
-		browser.close();
+//		browser.close();
 	}
 	
 	
