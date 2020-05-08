@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Clone and run angular repo') {
       steps {
-        sh "git clone https://github.com/g-testo/rsvr-angular && cd rsvr-angular-master"
+        sh "git clone https://github.com/g-testo/rsvr-angular && cd rsvr-angular"
         sh "npm install && ng start"
       }
     }
