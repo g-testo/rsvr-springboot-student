@@ -15,7 +15,7 @@ public class Stepdefs {
 	public void startChromeWithGoogle() throws Exception{
 		WebDriverManager.chromedriver().setup();
 		browser = new ChromeDriver();
-		browser.get("http://localhost:8080/users");
+		browser.get("http://localhost:4200/users/list");
 		
 		String pageSource = browser.getPageSource();
 		
