@@ -20,5 +20,10 @@ pipeline {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
+    stage('Stop Front End Server') {
+      steps {
+        sh "kill `lsof -t -i:4200`"
+      }
+    }
   }
 }
