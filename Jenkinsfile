@@ -8,9 +8,7 @@ pipeline {
     }
     stage('Clone and run angular repo') {
       steps {
-        sh(returnStdout: true, script: '''#!/bin/bash
-            [ ! -d ./rsvr-angular ] && git clone https://github.com/g-testo/rsvr-angular
-        '''.stripIndent())
+        sh "git clone https://github.com/g-testo/rsvr-angular; cd rsvr-angular; [ ! -d ./node_modules ] && npm install; ng serve &"
        }
     }
     stage('SpringBoot Selenium/Cucumber Test') {
