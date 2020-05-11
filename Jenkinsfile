@@ -18,5 +18,10 @@ pipeline {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
+    stage('Clone and run angular repo') {
+      steps {
+        sh "sudo kill $(sudo lsof -t -i:4200)"
+       }
+    }
   }
 }
