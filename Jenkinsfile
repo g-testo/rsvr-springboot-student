@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Stop Angular Server') {
       steps {
-        sh "sudo kill $(sudo lsof -t -i:4200)"
+        sh "kill $(lsof -t -i:4200)"
        }
     }
   }
