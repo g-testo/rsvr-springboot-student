@@ -1,5 +1,7 @@
-Feature: Google Search
-	Verifying if google search works
+Feature: Users Test Suite
+	Verifying if user pages works
 	
-	Scenario: Google search with text
-		Given The web browser is opened on google home
+	Scenario: Add new user
+		Given Open user form
+		When A new user is added
+		Then User shows on page
