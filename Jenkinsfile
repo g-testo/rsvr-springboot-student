@@ -23,13 +23,17 @@ pipeline {
         sh "mvn package; docker build -t rsvrspringboottest ."
       }
     }
+    stage('Deploy to Heroku') {
+      steps {
+          sh "heroku git:remote -a rsvrspringboot"
+          sh "git checkout master"
+          sh "git push heroku master"
+      }
+    }
   }
   post {
     always {
       sh "kill \$(lsof -t -i:4200)"
-      sh "heroku git:remote -a rsvrspringboot"
-      sh "git checkout master"
-      sh "git push heroku master"
     }
   }
 }
