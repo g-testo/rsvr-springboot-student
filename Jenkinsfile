@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Build Docker File') {
       steps {
-        sh "./mvnw package; docker build -t rsvrspringboottest ."
+        sh "mvn package; docker build -t rsvrspringboottest ."
       }
     }
   }
