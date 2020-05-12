@@ -18,11 +18,16 @@ pipeline {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
-    stage('Stop Angular Server') {
+    stage('Deploy Angular and SpringBoot') {
       steps {
-        sh "kill \$(lsof -t -i:4200)"
-        sh "echo server stopped"
-       }
+        sh "git push heroku master"
+        sh "cd rsvr-angular; git push heroku master"
+      }
+    }
+  }
+  post {
+    always {
+      sh "kill \$(lsof -t -i:4200)"
     }
   }
 }
