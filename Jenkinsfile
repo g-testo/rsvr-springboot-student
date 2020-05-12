@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh "git add -A; git commit -am "Build successful"; git push heroku master;
+        sh "git add -A; git commit -am 'Build successful'; git push heroku master";
       }
     }
   }
