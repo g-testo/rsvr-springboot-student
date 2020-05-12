@@ -26,7 +26,7 @@ pipeline {
   }
   post {
     always {
-      sh "kill \$(lsof -t -i:4200); kill \$(lsof -t -i:8080)"
+      sh "kill \$(lsof -t -i:4200)"
     }
   }
 }
