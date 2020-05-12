@@ -18,10 +18,15 @@ pipeline {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
+    stage('Build Docker File') {
+      steps {
+        sh "./mvnw package; docker build -t rsvrspringboottest ."
+      }
+    }
   }
   post {
     always {
-      sh "kill \$(lsof -t -i:4200)"
+      sh "kill \$(lsof -t -i:4200); kill \$(lsof -t -i:8080)"
     }
   }
 }
