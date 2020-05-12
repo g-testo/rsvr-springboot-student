@@ -32,7 +32,7 @@ public class Stepdefs {
 		browser.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		
 		WebElement el = browser.findElement(By.cssSelector(".formTitle"));
-		Assert.assertEquals("Created User Form", el.getText());
+		Assert.assertEquals("Create User Form", el.getText());
 	}
 	@When("^A new user is added$")
 	public void addNewUserUsingForm() throws Exception{
