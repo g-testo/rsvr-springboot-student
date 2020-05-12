@@ -18,12 +18,6 @@ pipeline {
         sh "mvn '-Dtest=*/RunCucumberTest.java' test"
       }
     }
-    stage('Deploy Angular and SpringBoot') {
-      steps {
-        sh "git push heroku master"
-        sh "cd rsvr-angular; git push heroku master"
-      }
-    }
   }
   post {
     always {
