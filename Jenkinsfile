@@ -27,6 +27,9 @@ pipeline {
   post {
     always {
       sh "kill \$(lsof -t -i:4200)"
+      sh "heroku git:remote -a rsvrspringboot"
+      sh "git checkout master"
+      sh "git push heroku master"
     }
   }
 }
