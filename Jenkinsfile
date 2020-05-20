@@ -36,7 +36,9 @@ pipeline {
   }
   post {
     always {
-      sh "kill \$(lsof -t -i:4200)"
+      bat """
+        for /f "tokens=5" %a in ('netstat -aon ^| find "4200"') do taskkill /f /pid %a
+      """
     }
   }
 }
