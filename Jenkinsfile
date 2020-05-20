@@ -37,7 +37,7 @@ pipeline {
   post {
     always {
       bat """
-        for /f "tokens=5" %a in ('netstat -aon ^| find "4200"') do taskkill /f /pid %a
+        for /f "tokens=5" %%a in ('netstat -aon ^| find "4200"') do taskkill /f /pid %%a
       """
     }
   }
