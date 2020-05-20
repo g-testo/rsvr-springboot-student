@@ -28,9 +28,11 @@ pipeline {
     }
     stage('Deploy to Heroku') {
       steps {
-          sh "heroku git:remote -a rsvrspringboot"
-          sh "git checkout master"
-          sh "git push heroku master"
+         bat """
+            heroku git:remote -a rsvrspringboot
+            git checkout master
+            git push heroku master
+         """
       }
     }
   }
