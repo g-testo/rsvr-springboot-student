@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    maven 'default'
+  }
   stages {
     stage('SpringBoot Integration Test') {
       steps {
